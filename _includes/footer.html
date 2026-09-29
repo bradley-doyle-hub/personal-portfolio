@@ -1,0 +1,14 @@
+<footer class="site-footer" id="contact">
+  <div class="wrap">
+    <section class="contact">
+      <h2 class="contact__heading">Have a project in mind?</h2>
+      <p class="contact__lede">Tell me what you're working on. I'll get back to you within two business days.</p>
+      {% include contact-form.html %}
+    </section>
+
+    <div class="site-footer__meta">
+      <p>&copy; {{ site.time | date: "%Y" }} {{ site.title }}</p>
+      {% if site.email != "" %}<p><a href="mailto:{{ site.email }}">{{ site.email }}</a></p>{% endif %}
+    </div>
+  </div>
+</footer>

@@ -1,0 +1,42 @@
+---
+layout: default
+title: Home
+---
+{% comment %}
+  Placeholder home page. Replace the hero with the Figma design.
+  The work grid follows the brief: site.projects sorted by order,
+  unpublished projects skipped by Jekyll, "Personal" label on personal work.
+{% endcomment %}
+
+<section class="hero wrap">
+  <h1 class="hero__title">{{ site.title }}</h1>
+  <p class="hero__lede">{{ site.description }}</p>
+</section>
+
+<section class="work wrap" id="work">
+  <h2 class="section-heading">Selected work</h2>
+
+  {% assign projects = site.projects | sort: "order" %}
+  {% if projects.size > 0 %}
+  <ul class="work-grid">
+    {% for project in projects %}
+    <li class="work-card">
+      <a href="{{ project.url | relative_url }}">
+        <div class="work-card__thumb">
+          {% if project.thumbnail and project.thumbnail != "" %}
+          <img src="{{ project.thumbnail | relative_url }}" alt="" loading="lazy">
+          {% endif %}
+        </div>
+        <div class="work-card__text">
+          {% if project.category == "personal" %}<span class="label">Personal</span>{% endif %}
+          <h3 class="work-card__title">{{ project.title }}</h3>
+          {% if project.type and project.type != "" %}<p class="work-card__type">{{ project.type }}</p>{% endif %}
+        </div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+  <p class="work-empty">New work is on the way.</p>
+  {% endif %}
+</section>

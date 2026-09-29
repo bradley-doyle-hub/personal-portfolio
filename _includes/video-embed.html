@@ -1,0 +1,25 @@
+{% comment %}
+  Responsive Vimeo or YouTube embed.
+  Usage: include video-embed.html with url= and title= parameters.
+  Handles vimeo.com/ID, player.vimeo.com/video/ID, youtube.com/watch?v=ID and youtu.be/ID.
+{% endcomment %}
+{% assign url = include.url | strip %}
+{% assign src = "" %}
+
+{% if url contains "vimeo.com" %}
+  {% assign id = url | split: "?" | first | split: "/" | last %}
+  {% assign src = "https://player.vimeo.com/video/" | append: id | append: "?dnt=1" %}
+{% elsif url contains "youtu.be/" %}
+  {% assign id = url | split: "youtu.be/" | last | split: "?" | first %}
+  {% assign src = "https://www.youtube-nocookie.com/embed/" | append: id %}
+{% elsif url contains "youtube.com" %}
+  {% assign id = url | split: "v=" | last | split: "&" | first %}
+  {% assign src = "https://www.youtube-nocookie.com/embed/" | append: id %}
+{% endif %}
+
+{% if src != "" %}
+<div class="video-embed">
+  <iframe src="{{ src }}" title="{{ include.title | escape }}" loading="lazy"
+    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+</div>
+{% endif %}

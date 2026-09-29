@@ -1,0 +1,29 @@
+title: Bradley Doyle
+description: "Motion design and 3D animation."
+url: "https://bradley-doyle-hub.github.io"
+baseurl: "/personal-portfolio"   # set to "" at cutover
+
+# Basin form endpoint, e.g. https://usebasin.com/f/abc123
+basin_endpoint: ""
+email: "brad@bradleydoyle.ca"
+
+collections:
+  projects:
+    output: true
+    permalink: /portfolio/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: projects
+    values:
+      layout: case-study
+
+markdown: kramdown
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - .DS_Store

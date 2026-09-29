@@ -1,0 +1,34 @@
+---
+layout: case-study
+published: false
+order: 8
+title: "ISED Explainer Series"
+client: "ISED"
+agency: ""
+year: ""
+type: "3D explainer series"
+role: ""
+summary: ""
+thumbnail: /assets/ised/thumb.jpg
+hero_video: ""
+tools: []
+credits:
+  - role: ""
+    name: ""
+---
+
+## The request
+
+<!-- What the client needed, and why. 2 to 3 sentences. -->
+
+## The approach
+
+<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
+
+## The outcome
+
+<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
+
+## Gallery
+
+<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/ised/frame-01.jpg) -->
