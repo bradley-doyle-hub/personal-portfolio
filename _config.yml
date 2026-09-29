@@ -9,15 +9,17 @@ location: "ottawa, on"
 # Basin form endpoint, e.g. https://usebasin.com/f/abc123
 basin_endpoint: ""
 
-# Full reel on Vimeo or YouTube. Shows the "play full reel" button when set.
-reel_url: ""
-# Optional short, muted MP4 loop for the hero background, e.g. /assets/reel/loop.mp4
+# Full reel on Vimeo or YouTube. Plays muted behind the hero, and in full
+# with sound from the "play full reel" button.
+reel_url: "https://youtu.be/tJ2b2M_6EAo"
+# Optional short, muted MP4 loop for the hero background, e.g. /assets/reel/loop.mp4.
+# Takes priority over the YouTube background when set.
 reel_loop: ""
 
 # Footer links. Blank URLs are skipped.
 social:
-  - label: vimeo
-    url: ""
+  - label: youtube
+    url: "https://www.youtube.com/@bradley__doyle"
   - label: instagram
     url: ""
   - label: linkedin

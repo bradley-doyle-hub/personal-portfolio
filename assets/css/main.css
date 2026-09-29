@@ -94,18 +94,19 @@ ul{list-style:none;padding:0}
   -webkit-backdrop-filter:blur(20px) saturate(140%);backdrop-filter:blur(20px) saturate(140%);
   border-bottom:1px solid rgba(244,241,234,0.12);
 }
-.nav__brand{display:flex;align-items:center;gap:12px;justify-self:start;color:var(--bd-paper);transition:gap var(--dur-base) var(--ease-out)}
-.monogram{
-  display:block;width:24px;height:24px;flex:0 0 auto;background:currentColor;
-  -webkit-mask:url('../favicon.svg') center / contain no-repeat;mask:url('../favicon.svg') center / contain no-repeat;
+/* Outlined logo. The viewBox is 481 × 91 and the mark fills the left 90 units,
+   so on scroll the brand narrows to the mark and the type slides out of view. */
+.nav__brand{
+  --logo-h:28px;
+  display:block;justify-self:start;overflow:hidden;
+  width:calc(var(--logo-h) * 481 / 91);height:var(--logo-h);
+  color:var(--bd-paper);
+  transition:width var(--dur-base) var(--ease-out);
 }
-.nav__wordmark{
-  display:inline-block;max-width:160px;overflow:hidden;white-space:nowrap;
-  font-weight:500;font-size:17px;letter-spacing:-0.01em;
-  transition:max-width var(--dur-base) var(--ease-out),opacity var(--dur-base) var(--ease-out);
-}
-.nav.is-compact .nav__brand{gap:0}
-.nav.is-compact .nav__wordmark{max-width:0;opacity:0}
+.logo{display:block;width:calc(var(--logo-h) * 481 / 91);height:var(--logo-h)}
+.logo__type{transition:opacity var(--dur-base) var(--ease-out)}
+.nav.is-compact .nav__brand{width:calc(var(--logo-h) * 90 / 91)}
+.nav.is-compact .logo__type{opacity:0}
 .nav__links{display:flex;gap:40px}
 .nav__links a{position:relative;padding-bottom:3px;font-size:16px;font-weight:600;color:var(--bd-paper)}
 .nav__links a::after{
@@ -134,7 +135,14 @@ ul{list-style:none;padding:0}
 
 /* ── home: hero ── */
 .hero{position:relative;height:92vh;min-height:640px;max-height:920px;overflow:hidden;background:var(--bd-charcoal)}
-.media--hero{position:absolute;inset:0}
+.media--hero{position:absolute;inset:0;container-type:size}
+/* YouTube/Vimeo background: scaled to cover the hero like object-fit, fades in once playing */
+.media__bg{
+  top:50%;left:50%;width:max(100cqw,177.78cqh);height:max(56.25cqw,100cqh);
+  transform:translate(-50%,-50%);border:0;pointer-events:none;
+  opacity:0;transition:opacity var(--dur-cinema) var(--ease-out);
+}
+.media__bg.is-ready{opacity:1}
 .hero__content{position:absolute;left:0;right:0;bottom:64px;z-index:2;padding:0 var(--edge);display:flex;flex-direction:column;gap:32px}
 .hero__kicker{font-family:var(--font-mono);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bd-signal-bright)}
 .hero__title{
@@ -378,7 +386,7 @@ ul{list-style:none;padding:0}
 @media (max-width:700px){
   :root{--edge:20px}
   .nav{padding-top:16px;padding-bottom:16px}
-  .nav__wordmark{display:none}
+  .nav__brand{--logo-h:22px}
   .nav__links{gap:20px}
   .nav__links a{font-size:15px}
   .hero{height:88vh;min-height:560px}

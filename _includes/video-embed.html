@@ -1,25 +1,43 @@
 {% comment %}
   Responsive Vimeo or YouTube embed.
-  Usage: include video-embed.html with url= and title= parameters.
+  Parameters: url, title, and optionally
+    background=true  muted, looping, no controls, for the hero reel.
+                     main.js sets the src, and skips it for reduced motion
+    deferred=true    src is held in data-src and set by main.js (reel dialog)
   Handles vimeo.com/ID, player.vimeo.com/video/ID, youtube.com/watch?v=ID and youtu.be/ID.
 {% endcomment %}
 {% assign url = include.url | strip %}
 {% assign src = "" %}
+{% assign id = "" %}
 
 {% if url contains "vimeo.com" %}
   {% assign id = url | split: "?" | first | split: "/" | last %}
-  {% assign src = "https://player.vimeo.com/video/" | append: id | append: "?dnt=1" %}
-{% elsif url contains "youtu.be/" %}
-  {% assign id = url | split: "youtu.be/" | last | split: "?" | first %}
-  {% assign src = "https://www.youtube-nocookie.com/embed/" | append: id %}
-{% elsif url contains "youtube.com" %}
-  {% assign id = url | split: "v=" | last | split: "&" | first %}
-  {% assign src = "https://www.youtube-nocookie.com/embed/" | append: id %}
+  {% if include.background %}
+    {% assign src = "https://player.vimeo.com/video/" | append: id | append: "?background=1&dnt=1" %}
+  {% else %}
+    {% assign src = "https://player.vimeo.com/video/" | append: id | append: "?dnt=1" %}
+  {% endif %}
+{% elsif url contains "youtu" %}
+  {% if url contains "youtu.be/" %}
+    {% assign id = url | split: "youtu.be/" | last | split: "?" | first %}
+  {% else %}
+    {% assign id = url | split: "v=" | last | split: "&" | first %}
+  {% endif %}
+  {% if include.background %}
+    {% assign src = "https://www.youtube-nocookie.com/embed/" | append: id | append: "?autoplay=1&mute=1&loop=1&playlist=" | append: id | append: "&controls=0&disablekb=1&playsinline=1&rel=0&iv_load_policy=3&modestbranding=1" %}
+  {% else %}
+    {% assign src = "https://www.youtube-nocookie.com/embed/" | append: id | append: "?rel=0&modestbranding=1&playsinline=1" %}
+  {% endif %}
 {% endif %}
 
 {% if src != "" %}
+{% if include.background %}
+<iframe class="media__bg" data-src="{{ src }}" title="{{ include.title | escape }}" tabindex="-1" aria-hidden="true"
+  allow="autoplay; encrypted-media; picture-in-picture" data-bg-video></iframe>
+{% else %}
 <div class="video-embed">
-  <iframe src="{{ src }}" title="{{ include.title | escape }}" loading="lazy"
-    allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  <iframe {% if include.deferred %}data-src{% else %}src{% endif %}="{{ src }}" title="{{ include.title | escape }}"{% unless include.deferred %} loading="lazy"{% endunless %}
+    allow="autoplay; encrypted-media; fullscreen; picture-in-picture" allowfullscreen></iframe>
 </div>
+{% endif %}
 {% endif %}

@@ -97,16 +97,28 @@
     if (reduceMotion) video.pause();
   }
 
-  // Full reel dialog. Closing reloads the iframe so playback stops.
+  // Hero reel from YouTube/Vimeo: muted background loop. Skipped for reduced
+  // motion. The fade-in waits a beat so the player's title card never shows.
+  var bg = document.querySelector("[data-bg-video]");
+  if (bg && !reduceMotion) {
+    bg.addEventListener("load", function () {
+      setTimeout(function () { bg.classList.add("is-ready"); }, 1800);
+    });
+    bg.src = bg.dataset.src;
+  }
+
+  // Full reel dialog: loads and autoplays on open, unloads on close so playback stops.
   var dialog = document.querySelector("[data-reel-dialog]");
   var opener = document.querySelector("[data-reel-open]");
   if (dialog && opener && dialog.showModal) {
     var frame = dialog.querySelector("iframe");
-    var src = frame ? frame.src : "";
-    opener.addEventListener("click", function () { dialog.showModal(); });
+    opener.addEventListener("click", function () {
+      if (frame) frame.src = frame.dataset.src + (frame.dataset.src.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
+      dialog.showModal();
+    });
     dialog.querySelector("[data-reel-close]").addEventListener("click", function () { dialog.close(); });
     dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
-    dialog.addEventListener("close", function () { if (frame) frame.src = src; });
+    dialog.addEventListener("close", function () { if (frame) frame.removeAttribute("src"); });
   }
 
   // Lottie: pages with `lottie: true` in front matter load lottie-web.

@@ -10,6 +10,8 @@ title: Home
   <div class="media media--hero">
     {% if site.reel_loop != "" %}
     <video class="media__video" src="{{ site.reel_loop | relative_url }}" autoplay muted loop playsinline data-hero-video></video>
+    {% elsif site.reel_url != "" %}
+    {% include video-embed.html url=site.reel_url title="Bradley Doyle reel" background=true %}
     {% endif %}
     <span class="media__bloom"></span>
     <span class="media__grain"></span>
@@ -39,7 +41,7 @@ title: Home
 {% if site.reel_url != "" %}
 <dialog class="reel-dialog" data-reel-dialog aria-label="Full reel">
   <button type="button" class="reel-dialog__close" data-reel-close aria-label="Close reel">close ×</button>
-  {% include video-embed.html url=site.reel_url title="Bradley Doyle reel" %}
+  {% include video-embed.html url=site.reel_url title="Bradley Doyle reel" deferred=true %}
 </dialog>
 {% endif %}
 

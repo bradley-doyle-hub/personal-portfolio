@@ -2,8 +2,7 @@
 {% if page.layout == "case-study" or page.url == "/work/" %}{% assign work_active = true %}{% endif %}
 <header class="nav" data-nav>
   <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}, home">
-    <span class="monogram" aria-hidden="true"></span>
-    <span class="nav__wordmark">bradley doyle</span>
+    {% include logo.svg %}
   </a>
   <nav class="nav__links" aria-label="Main">
     <a href="{{ '/work/' | relative_url }}"{% if work_active %} class="is-active" aria-current="page"{% endif %}>work</a>
