@@ -1,0 +1,15 @@
+{%- assign p = include.project -%}
+{%- assign thumb = site.static_files | where: "path", p.thumbnail | first -%}
+{%- capture tags -%}{% for t in p.tags %}{{ t | downcase }}{% unless forloop.last %}|{% endunless %}{% endfor %}{%- endcapture -%}
+<a class="card" href="{{ p.url | relative_url }}" data-tags="{{ tags }}">
+  <span class="card__fill" style="background-color: {{ p.fill | default: '#0e1a22' }}">
+    {% if thumb %}<img src="{{ p.thumbnail | relative_url }}" alt="" loading="lazy">{% endif %}
+  </span>
+  <span class="card__shade"></span>
+  <span class="card__index">— {{ include.index }}</span>
+  <span class="card__info">
+    <span class="card__meta">{% if p.category == "personal" %}personal · {% endif %}{% include project-meta.html project=p %}</span>
+    <span class="card__title">{{ p.title }}</span>
+    {% if p.note and p.note != "" %}<span class="card__note"><em>—</em> {{ p.note }}</span>{% endif %}
+  </span>
+</a>

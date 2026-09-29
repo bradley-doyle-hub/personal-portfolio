@@ -2,41 +2,113 @@
 layout: default
 title: Home
 ---
-{% comment %}
-  Placeholder home page. Replace the hero with the Figma design.
-  The work grid follows the brief: site.projects sorted by order,
-  unpublished projects skipped by Jekyll, "Personal" label on personal work.
-{% endcomment %}
+{% assign sorted = site.projects | sort: "order" %}
+{% assign featured = sorted | where: "featured", true %}
+{% if featured.size == 0 %}{% assign featured = sorted %}{% endif %}
 
-<section class="hero wrap">
-  <h1 class="hero__title">{{ site.title }}</h1>
-  <p class="hero__lede">{{ site.description }}</p>
+<section class="hero" data-hero>
+  <div class="media media--hero">
+    {% if site.reel_loop != "" %}
+    <video class="media__video" src="{{ site.reel_loop | relative_url }}" autoplay muted loop playsinline data-hero-video></video>
+    {% endif %}
+    <span class="media__bloom"></span>
+    <span class="media__grain"></span>
+    <span class="media__protect"></span>
+    {% if site.reel_loop != "" %}
+    <span class="media__caption">reel · {{ site.time | date: "%Y" }} · autoplay · muted · loops</span>
+    <span class="media__scrub"><span data-hero-progress></span></span>
+    <span class="media__timecode" data-hero-timecode></span>
+    {% endif %}
+  </div>
+
+  <div class="hero__content">
+    <p class="hero__kicker">● art director · 3D generalist · {{ site.location }}</p>
+    <h1 class="hero__title">complexity used to <em class="accent">clarify.</em><br>not to <em>decorate.</em></h1>
+    <div class="hero__foot">
+      <p class="hero__lede">Art director and 3D generalist. 10+ years of product and tech visuals, brand campaigns and museum installations for federal, museum and enterprise tech clients.</p>
+      <div class="hero__ctas">
+        {% if site.reel_url != "" %}
+        <button type="button" class="btn btn--primary" data-reel-open>▶&nbsp; play full reel</button>
+        {% endif %}
+        <a class="btn btn--outline" href="#contact">get in touch →</a>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="work wrap" id="work">
-  <h2 class="section-heading">Selected work</h2>
+{% if site.reel_url != "" %}
+<dialog class="reel-dialog" data-reel-dialog aria-label="Full reel">
+  <button type="button" class="reel-dialog__close" data-reel-close aria-label="Close reel">close ×</button>
+  {% include video-embed.html url=site.reel_url title="Bradley Doyle reel" %}
+</dialog>
+{% endif %}
 
-  {% assign projects = site.projects | sort: "order" %}
-  {% if projects.size > 0 %}
-  <ul class="work-grid">
-    {% for project in projects %}
-    <li class="work-card">
-      <a href="{{ project.url | relative_url }}">
-        <div class="work-card__thumb">
-          {% if project.thumbnail and project.thumbnail != "" %}
-          <img src="{{ project.thumbnail | relative_url }}" alt="" loading="lazy">
-          {% endif %}
-        </div>
-        <div class="work-card__text">
-          {% if project.category == "personal" %}<span class="label">Personal</span>{% endif %}
-          <h3 class="work-card__title">{{ project.title }}</h3>
-          {% if project.type and project.type != "" %}<p class="work-card__type">{{ project.type }}</p>{% endif %}
-        </div>
-      </a>
-    </li>
-    {% endfor %}
+<section class="clients" aria-label="Selected clients">
+  <span class="clients__label">selected clients</span>
+  <ul class="clients__list">
+    {% for client in site.data.clients %}<li>{{ client }}</li>{% endfor %}
   </ul>
+</section>
+
+<section class="section section--work" id="work" data-work>
+  <div class="work-head">
+    <h2 class="eyebrow eyebrow--lg">01 · selected work · 2022 → present</h2>
+    {% include view-toggle.html %}
+  </div>
+
+  {% if featured.size > 0 %}
+  <div class="feature-grid" data-view-panel="grid">
+    {% for p in featured limit: 3 %}
+      {% capture num %}{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}{% endcapture %}
+      {% include work-card.html project=p index=num %}
+    {% endfor %}
+  </div>
+
+  <div class="work-index" data-view-panel="index" hidden>
+    {% for p in featured limit: 3 %}
+      {% capture num %}{% if forloop.index < 10 %}0{% endif %}{{ forloop.index }}{% endcapture %}
+      {% include work-row.html project=p index=num %}
+    {% endfor %}
+  </div>
   {% else %}
-  <p class="work-empty">New work is on the way.</p>
+  <p class="empty">New work is on the way.</p>
   {% endif %}
+
+  <a class="archive-link" href="{{ '/work/' | relative_url }}">
+    <span class="archive-link__label">view the full archive</span>
+    <span class="archive-link__end">
+      <span class="archive-link__count">{{ sorted.size }} project{% if sorted.size != 1 %}s{% endif %}</span>
+      <span class="archive-link__arrow" aria-hidden="true">→</span>
+    </span>
+  </a>
+</section>
+
+<section class="section section--about" id="about">
+  <h2 class="eyebrow eyebrow--lg">02 · what I do</h2>
+  <div class="services">
+    {% for s in site.data.services %}
+    <div class="service">
+      <div class="service__name">
+        <span class="service__num">02.{{ forloop.index }}</span>
+        <h3 class="service__title">{{ s.title }}</h3>
+      </div>
+      <div class="service__body">
+        <p>{{ s.description }}</p>
+        {% if s.tag %}<span class="service__tag">{{ s.tag }}</span>{% endif %}
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section section--contact" id="contact">
+  <h2 class="eyebrow eyebrow--lg">03 · get in touch</h2>
+  <div class="contact">
+    <div>
+      <h3 class="contact__title">let's talk about the <em>work.</em></h3>
+      <p class="contact__lede">Project enquiries, collaborations, or just hello. I read every message and reply within a couple of days.</p>
+      <p class="contact__direct"><a href="mailto:{{ site.email }}">{{ site.email }}</a> <span>·</span> <span>{{ site.location }}</span></p>
+    </div>
+    {% include contact-form.html %}
+  </div>
 </section>

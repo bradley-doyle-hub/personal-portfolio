@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 5
+featured: false
 title: "Timescapes"
 client: ""
 agency: "Genuis Films"
 year: ""
 type: "Motion"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/timescapes/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

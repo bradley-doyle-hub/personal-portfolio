@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 13
+featured: false
 title: "Modern Military Aviation"
 client: ""
 agency: "Immersive International"
 year: ""
 type: "3D + motion"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/modern-military-aviation/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

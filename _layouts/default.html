@@ -6,19 +6,24 @@
   {% if page.title and page.url != "/" %}
   <title>{{ page.title }} | {{ site.title }}</title>
   {% else %}
-  <title>{{ site.title }}</title>
+  <title>{{ site.title }} | Art director and 3D generalist</title>
   {% endif %}
-  <meta name="description" content="{{ page.summary | default: site.description | strip_html | strip }}">
+  {% assign description = page.summary | default: page.note | default: site.description | strip_html | strip %}
+  <meta name="description" content="{{ description }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
+  <meta name="theme-color" content="#0E0E0E">
+  <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 
   <meta property="og:title" content="{{ page.title | default: site.title }}">
-  <meta property="og:description" content="{{ page.summary | default: site.description | strip_html | strip }}">
+  <meta property="og:description" content="{{ description }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
   {% if page.thumbnail %}<meta property="og:image" content="{{ page.thumbnail | absolute_url }}">{% endif %}
 
+  <link rel="preload" href="{{ '/assets/fonts/Inter-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
 </head>
-<body class="{{ page.layout | default: 'page' }}">
+<body class="layout-{{ page.layout | default: 'page' }}">
+  <a class="skip-link" href="#main">Skip to content</a>
   {% include header.html %}
 
   <main id="main">

@@ -4,37 +4,66 @@ layout: default
 {% comment %}
   Any front matter field that is blank or missing is hidden.
   Personal projects (category: personal) have no client, agency, role or credits.
+  Section heads are numbered by CSS counters, so Markdown h2s slot in between.
 {% endcomment %}
 {% assign is_personal = false %}
 {% if page.category == "personal" %}{% assign is_personal = true %}{% endif %}
 
-<article class="case-study wrap">
-  <header class="case-study__header">
-    {% if is_personal %}<p class="label">Personal</p>{% endif %}
-    <h1 class="case-study__title">{{ page.title }}</h1>
-    {% if page.summary and page.summary != "" %}
-    <p class="case-study__summary">{{ page.summary }}</p>
-    {% endif %}
+{% assign all = site.projects | sort: "order" %}
+{% assign i = 0 %}
+{% for p in all %}{% if p.url == page.url %}{% assign i = forloop.index0 %}{% endif %}{% endfor %}
+{% assign num = i | plus: 1 %}
+{% assign n = i | plus: 1 %}
+{% if n >= all.size %}{% assign n = 0 %}{% endif %}
+{% assign next = all[n] %}
+{% assign thumb = site.static_files | where: "path", page.thumbnail | first %}
 
-    <dl class="case-study__meta">
-      {% unless is_personal %}
-        {% if page.client and page.client != "" %}<div><dt>Client</dt><dd>{{ page.client }}</dd></div>{% endif %}
-        {% if page.agency and page.agency != "" %}<div><dt>Agency</dt><dd>{{ page.agency }}</dd></div>{% endif %}
-        {% if page.role and page.role != "" %}<div><dt>Role</dt><dd>{{ page.role }}</dd></div>{% endif %}
-      {% endunless %}
-      {% if page.type and page.type != "" %}<div><dt>Type</dt><dd>{{ page.type }}</dd></div>{% endif %}
-      {% if page.year and page.year != "" %}<div><dt>Year</dt><dd>{{ page.year }}</dd></div>{% endif %}
-    </dl>
+<article class="case-study">
+  <div class="crumb">
+    <a href="{{ '/work/' | relative_url }}">← all work</a>
+    <span>project {% if num < 10 %}0{% endif %}{{ num }} / {% if all.size < 10 %}0{% endif %}{{ all.size }}</span>
+  </div>
+
+  <header class="p-title-block">
+    {% if is_personal %}<p class="eyebrow">personal project</p>{% endif %}
+    <h1 class="p-title">{{ page.title }}</h1>
+    {% if page.note and page.note != "" %}<p class="p-subtitle">{{ page.note }}</p>{% endif %}
   </header>
 
-  {% if page.hero_video and page.hero_video != "" %}
-  <div class="case-study__hero">
-    {% include video-embed.html url=page.hero_video title=page.title %}
+  <div class="p-hero">
+    {% if page.hero_video and page.hero_video != "" %}
+      {% include video-embed.html url=page.hero_video title=page.title %}
+    {% else %}
+    <div class="media media--frame">
+      {% if thumb %}<img class="media__img" src="{{ page.thumbnail | relative_url }}" alt="{{ page.title | escape }}">{% endif %}
+      <span class="media__bloom"></span>
+      <span class="media__grain"></span>
+    </div>
+    {% endif %}
   </div>
-  {% elsif page.thumbnail and page.thumbnail != "" %}
-  <div class="case-study__hero">
-    <img src="{{ page.thumbnail | relative_url }}" alt="{{ page.title | escape }}">
-  </div>
+
+  {% capture meta_rows %}
+    {% unless is_personal %}
+      {% if page.client and page.client != "" %}<div class="meta-row"><dt>client</dt><dd>{{ page.client }}</dd></div>{% endif %}
+      {% if page.agency and page.agency != "" %}<div class="meta-row"><dt>agency</dt><dd>{{ page.agency }}</dd></div>{% endif %}
+      {% if page.role and page.role != "" %}<div class="meta-row"><dt>role</dt><dd>{{ page.role }}</dd></div>{% endif %}
+    {% endunless %}
+    {% if page.type and page.type != "" %}<div class="meta-row"><dt>type</dt><dd>{{ page.type }}</dd></div>{% endif %}
+    {% if page.year and page.year != "" %}<div class="meta-row"><dt>year</dt><dd>{{ page.year }}</dd></div>{% endif %}
+  {% endcapture %}
+  {% assign has_meta = false %}
+  {% if meta_rows contains "meta-row" %}{% assign has_meta = true %}{% endif %}
+  {% assign has_summary = false %}
+  {% if page.summary and page.summary != "" %}{% assign has_summary = true %}{% endif %}
+
+  {% if has_meta or has_summary %}
+  <section class="p-section">
+    <h2 class="section-head">overview</h2>
+    <div class="brief-grid">
+      {% if has_meta %}<dl class="meta-list">{{ meta_rows }}</dl>{% else %}<div></div>{% endif %}
+      {% if has_summary %}<p class="brief-lede">{{ page.summary }}</p>{% endif %}
+    </div>
+  </section>
   {% endif %}
 
   {% comment %}
@@ -44,43 +73,44 @@ layout: default
   {% assign assets_prefix = '/assets/' | relative_url %}
   {% assign src_from = 'src="/assets/' %}
   {% assign src_to = 'src="' | append: assets_prefix %}
-  <div class="case-study__body prose">
+  <div class="p-body">
     {{ content | replace: src_from, src_to }}
   </div>
 
   {% assign has_tools = false %}
   {% for tool in page.tools %}{% if tool != "" %}{% assign has_tools = true %}{% endif %}{% endfor %}
-
   {% assign has_credits = false %}
   {% unless is_personal %}
     {% for credit in page.credits %}{% if credit.name and credit.name != "" %}{% assign has_credits = true %}{% endif %}{% endfor %}
   {% endunless %}
 
   {% if has_tools or has_credits %}
-  <footer class="case-study__footer">
-    {% if has_tools %}
-    <section>
-      <h2>Tools</h2>
-      <ul class="tag-list">
-        {% for tool in page.tools %}{% if tool != "" %}<li>{{ tool }}</li>{% endif %}{% endfor %}
-      </ul>
-    </section>
-    {% endif %}
-
-    {% if has_credits %}
-    <section>
-      <h2>Credits</h2>
-      <dl class="credits">
+  <section class="p-section">
+    <h2 class="section-head">credits</h2>
+    <dl class="credits">
+      {% if has_credits %}
         {% for credit in page.credits %}
           {% if credit.name and credit.name != "" %}
-          <div><dt>{{ credit.role }}</dt><dd>{{ credit.name }}</dd></div>
+          <div class="credit"><dt>{{ credit.role }}</dt><dd>{{ credit.name }}</dd></div>
           {% endif %}
         {% endfor %}
-      </dl>
-    </section>
-    {% endif %}
-  </footer>
+      {% endif %}
+      {% if has_tools %}
+      <div class="credit"><dt>tools</dt><dd>{% for tool in page.tools %}{% if tool != "" %}{{ tool }}{% unless forloop.last %} · {% endunless %}{% endif %}{% endfor %}</dd></div>
+      {% endif %}
+    </dl>
+  </section>
   {% endif %}
 
-  <p class="case-study__back"><a href="{{ '/#work' | relative_url }}">&larr; All work</a></p>
+  {% if next and next.url != page.url %}
+  <a class="next-project" href="{{ next.url | relative_url }}">
+    <span>
+      <span class="next-project__k">next project</span>
+      <span class="next-project__title">{{ next.title }}</span>
+    </span>
+    <span class="next-project__arrow" aria-hidden="true">→</span>
+  </a>
+  {% endif %}
 </article>
+
+{% include contact-cta.html %}

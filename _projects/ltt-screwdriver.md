@@ -3,11 +3,15 @@ layout: case-study
 category: personal
 published: false
 order: 6
+featured: false
 title: "LTT Screwdriver"
 year: ""
 type: "3D product animation"
+tags: []
 summary: ""
+note: ""
 thumbnail: /assets/ltt-screwdriver/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 ---

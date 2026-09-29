@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 11
+featured: false
 title: "Veteran Stories"
 client: "Veteran Stories"
 agency: ""
 year: ""
 type: "Motion"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/veteran-stories/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

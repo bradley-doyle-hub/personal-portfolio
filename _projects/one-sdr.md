@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 9
+featured: false
 title: "ONE SDR"
 client: "ONE SDR"
 agency: ""
 year: ""
 type: "Motion"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/one-sdr/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

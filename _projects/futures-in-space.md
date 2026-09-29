@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 12
+featured: false
 title: "Futures in Space"
 client: ""
 agency: "Immersive International"
 year: ""
 type: "Short film, 3D, VFX"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/futures-in-space/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

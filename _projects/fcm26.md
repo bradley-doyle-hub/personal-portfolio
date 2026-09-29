@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 2
+featured: false
 title: "FCM 2026 Conference Package"
 client: "Federation of Canadian Municipalities"
 agency: "Character Creative"
 year: "2026"
 type: "Motion"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/fcm26/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

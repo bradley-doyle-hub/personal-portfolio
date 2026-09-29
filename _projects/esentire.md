@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 7
+featured: false
 title: "eSentire Explainer"
 client: "eSentire"
 agency: ""
 year: ""
 type: "3D explainer"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/esentire/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

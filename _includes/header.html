@@ -1,9 +1,14 @@
-<header class="site-header">
-  <div class="wrap site-header__inner">
-    <a class="site-header__name" href="{{ '/' | relative_url }}">{{ site.title }}</a>
-    <nav class="site-header__nav" aria-label="Main">
-      <a href="{{ '/#work' | relative_url }}">Work</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </div>
+{% assign work_active = false %}
+{% if page.layout == "case-study" or page.url == "/work/" %}{% assign work_active = true %}{% endif %}
+<header class="nav" data-nav>
+  <a class="nav__brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }}, home">
+    <span class="monogram" aria-hidden="true"></span>
+    <span class="nav__wordmark">bradley doyle</span>
+  </a>
+  <nav class="nav__links" aria-label="Main">
+    <a href="{{ '/work/' | relative_url }}"{% if work_active %} class="is-active" aria-current="page"{% endif %}>work</a>
+    <a href="{{ '/#about' | relative_url }}">about</a>
+    <a href="{{ '/#contact' | relative_url }}">contact</a>
+  </nav>
+  <div class="nav__meta">ottawa · <span data-clock>--:--</span> <span data-clock-zone>est</span></div>
 </header>

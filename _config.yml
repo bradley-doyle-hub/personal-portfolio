@@ -1,11 +1,27 @@
 title: Bradley Doyle
-description: "Motion design and 3D animation."
+description: "Art director and 3D generalist in Ottawa. Product and tech visuals, brand campaigns and museum installations."
 url: "https://bradley-doyle-hub.github.io"
 baseurl: "/personal-portfolio"   # set to "" at cutover
 
+email: "brad@bradleydoyle.ca"
+location: "ottawa, on"
+
 # Basin form endpoint, e.g. https://usebasin.com/f/abc123
 basin_endpoint: ""
-email: "brad@bradleydoyle.ca"
+
+# Full reel on Vimeo or YouTube. Shows the "play full reel" button when set.
+reel_url: ""
+# Optional short, muted MP4 loop for the hero background, e.g. /assets/reel/loop.mp4
+reel_loop: ""
+
+# Footer links. Blank URLs are skipped.
+social:
+  - label: vimeo
+    url: ""
+  - label: instagram
+    url: ""
+  - label: linkedin
+    url: ""
 
 collections:
   projects:

@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 4
+featured: false
 title: "Relic"
 client: "Relic"
 agency: ""
 year: "2026"
 type: "Brand + web"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/relic/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

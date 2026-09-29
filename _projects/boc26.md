@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 3
+featured: false
 title: "BoC26 3D Spots"
 client: ""
 agency: "Designer Unknown"
 year: "2026"
 type: "3D"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/boc26/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

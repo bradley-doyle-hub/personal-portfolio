@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 14
+featured: false
 title: "Living in the Space Age Hall"
 client: ""
 agency: "Immersive International"
 year: ""
 type: "3D / immersive"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/space-age-hall/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

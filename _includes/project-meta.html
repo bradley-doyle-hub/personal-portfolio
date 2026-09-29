@@ -1,0 +1,13 @@
+{%- comment -%}
+  Card and index meta line, e.g. "3D · motion · 2024".
+  Uses tags when present, otherwise type. Year is appended when set.
+{%- endcomment -%}
+{%- assign p = include.project -%}
+{%- assign bits = "" | split: "" -%}
+{%- if p.tags and p.tags.size > 0 -%}
+  {%- for t in p.tags -%}{%- if t != "" -%}{%- assign bits = bits | push: t -%}{%- endif -%}{%- endfor -%}
+{%- elsif p.type and p.type != "" -%}
+  {%- assign bits = bits | push: p.type -%}
+{%- endif -%}
+{%- if p.year and p.year != "" -%}{%- assign year = p.year | append: "" -%}{%- assign bits = bits | push: year -%}{%- endif -%}
+{{- bits | join: " · " -}}

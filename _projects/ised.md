@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 8
+featured: false
 title: "ISED Explainer Series"
 client: "ISED"
 agency: ""
 year: ""
 type: "3D explainer series"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/ised/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

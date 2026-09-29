@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 10
+featured: false
 title: "Oliver Campaign Video"
 client: "Oliver"
 agency: ""
 year: ""
 type: "Editing + motion"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/oliver/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

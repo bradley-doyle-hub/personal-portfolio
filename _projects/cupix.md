@@ -2,14 +2,18 @@
 layout: case-study
 published: false
 order: 1
+featured: false
 title: "Cupix 30s Brand Sizzle"
 client: "Cupix"
 agency: "Genuis Films"
 year: "2026"
 type: "Motion"
+tags: []
 role: ""
 summary: ""
+note: ""
 thumbnail: /assets/cupix/thumb.jpg
+fill: ""
 hero_video: ""
 tools: []
 credits:

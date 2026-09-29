@@ -1,21 +1,23 @@
 {% if site.basin_endpoint != "" %}
 <form class="contact-form" action="{{ site.basin_endpoint }}" method="POST">
-  <div class="field">
-    <label for="cf-name">Name</label>
-    <input id="cf-name" name="name" type="text" autocomplete="name" required>
-  </div>
-  <div class="field">
-    <label for="cf-email">Email</label>
-    <input id="cf-email" name="email" type="email" autocomplete="email" required>
-  </div>
-  <div class="field">
-    <label for="cf-message">Project details</label>
-    <textarea id="cf-message" name="message" rows="5" required></textarea>
-  </div>
+  <label class="field">
+    <span class="field__label">name</span>
+    <input name="name" type="text" autocomplete="name" placeholder="jane smith" required>
+  </label>
+  <label class="field">
+    <span class="field__label">email</span>
+    <input name="email" type="email" autocomplete="email" placeholder="jane@studio.com" required>
+  </label>
+  <label class="field">
+    <span class="field__label">message</span>
+    <textarea name="message" rows="4" placeholder="tell me about the project…" required></textarea>
+  </label>
   <!-- Basin honeypot. Leave empty. -->
   <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
-  <button type="submit" class="button">Send</button>
+  <div><button type="submit" class="btn btn--primary">send message →</button></div>
 </form>
 {% else %}
-<p class="contact-form--pending">Form coming soon. For now, email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+<div class="contact-form contact-form--pending">
+  <p>The contact form is on its way. Until then, email <a href="mailto:{{ site.email }}">{{ site.email }}</a>.</p>
+</div>
 {% endif %}

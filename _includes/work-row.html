@@ -1,0 +1,11 @@
+{%- assign p = include.project -%}
+{%- capture tags -%}{% for t in p.tags %}{{ t | downcase }}{% unless forloop.last %}|{% endunless %}{% endfor %}{%- endcapture -%}
+<a class="row" href="{{ p.url | relative_url }}" data-tags="{{ tags }}">
+  <span class="row__index">{{ include.index }}</span>
+  <span class="row__text">
+    <span class="row__title">{{ p.title }}</span>
+    {% if p.note and p.note != "" %}<span class="row__note">{{ p.note }}</span>{% endif %}
+  </span>
+  <span class="row__meta">{% if p.category == "personal" %}personal · {% endif %}{% include project-meta.html project=p %}</span>
+  <span class="row__arrow" aria-hidden="true">→</span>
+</a>
