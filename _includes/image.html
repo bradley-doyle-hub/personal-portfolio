@@ -1,0 +1,5 @@
+{%- comment -%}
+  Single full-width image inside a project body.
+  {% include image.html src="/assets/cupix/frame-01.jpg" alt="What the image shows" caption="Optional caption" %}
+{%- endcomment -%}
+<figure class="block block--image"><img src="{{ include.src | relative_url }}" alt="{{ include.alt | escape }}" loading="lazy">{% if include.caption %}<figcaption class="block__caption">{{ include.caption }}</figcaption>{% endif %}</figure>

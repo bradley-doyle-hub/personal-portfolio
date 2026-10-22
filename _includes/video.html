@@ -1,0 +1,8 @@
+{%- comment -%}
+  Full-width Vimeo or YouTube video inside a project body.
+  {% include video.html url="https://vimeo.com/123" caption="Final film" %}
+  caption is optional.
+{%- endcomment -%}
+{%- assign title = include.caption | default: page.title -%}
+{%- capture embed -%}{% include video-embed.html url=include.url title=title %}{%- endcapture -%}
+<figure class="block block--video">{{ embed | strip }}{% if include.caption %}<figcaption class="block__caption">{{ include.caption }}</figcaption>{% endif %}</figure>

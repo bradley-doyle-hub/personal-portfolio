@@ -1,0 +1,35 @@
+{% comment %}
+  Project hero video, styled like the home page reel.
+  Before play: muted background loop under the site's grain and gradient, with a play button.
+  On click: the overlay fades out and the full YouTube/Vimeo player starts with sound.
+  Parameters: url, title, caption (optional), poster (optional).
+  For YouTube, the video's own thumbnail is the poster when none is given.
+  It shows until the loop starts, and stays for reduced motion.
+{% endcomment %}
+{% assign url = include.url | strip %}
+{% assign poster = include.poster %}
+{% if poster == nil or poster == "" %}
+  {% if url contains "youtu.be/" %}
+    {% assign yt = url | split: "youtu.be/" | last | split: "?" | first %}
+  {% elsif url contains "youtube.com" %}
+    {% assign yt = url | split: "v=" | last | split: "&" | first %}
+  {% endif %}
+  {% if yt %}{% assign poster = "https://i.ytimg.com/vi/" | append: yt | append: "/maxresdefault.jpg" %}{% endif %}
+{% else %}
+  {% assign poster = poster | relative_url %}
+{% endif %}
+
+<div class="media media--player" data-player>
+  {% if poster %}<img class="media__img" src="{{ poster }}" alt="" aria-hidden="true">{% endif %}
+  {% include video-embed.html url=url title=include.title background=true %}
+  <span class="media__bloom"></span>
+  <span class="media__grain"></span>
+  <span class="media__protect"></span>
+  {% if include.caption %}<span class="media__caption">{{ include.caption }}</span>{% endif %}
+  <button type="button" class="player__play" data-player-play aria-label="Play {{ include.title | escape }} with sound">
+    <span class="btn btn--primary">▶&nbsp; play film</span>
+  </button>
+  <div class="player__full">
+    {% include video-embed.html url=url title=include.title deferred=true %}
+  </div>
+</div>

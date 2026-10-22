@@ -1,0 +1,9 @@
+{%- comment -%}
+  Image grid, 2 to 4 columns. Stacks to one column on phones.
+  {% include grid.html cols=3 images="/assets/cupix/a.jpg,/assets/cupix/b.jpg,/assets/cupix/c.jpg" alts="First|Second|Third" caption="Optional caption" %}
+  images is comma-separated. alts is pipe-separated, in the same order.
+{%- endcomment -%}
+{%- assign imgs = include.images | split: "," -%}
+{%- assign alts = include.alts | default: "" | split: "|" -%}
+{%- assign cols = include.cols | default: 2 -%}
+<figure class="block block--grid" style="--cols:{{ cols }}">{% for src in imgs %}<img src="{{ src | strip | relative_url }}" alt="{{ alts[forloop.index0] | strip | escape }}" loading="lazy">{% endfor %}{% if include.caption %}<figcaption class="block__caption">{{ include.caption }}</figcaption>{% endif %}</figure>

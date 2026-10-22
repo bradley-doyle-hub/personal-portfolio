@@ -1,0 +1,7 @@
+{%- comment -%}
+  Muted, looping video clip. 5 to 10 seconds, no audio, under 5 MB.
+  {% include loop.html src="/assets/cupix/room-build.mp4" poster="/assets/cupix/room-build.jpg" alt="What the clip shows" caption="Optional caption" %}
+  webm="/assets/cupix/room-build.webm" adds an optional second source.
+  main.js pauses loops when they scroll off screen, and for reduced motion.
+{%- endcomment -%}
+<figure class="block block--loop"><video autoplay muted loop playsinline preload="metadata"{% if include.poster %} poster="{{ include.poster | relative_url }}"{% endif %}{% if include.alt %} aria-label="{{ include.alt | escape }}"{% endif %} data-loop>{% if include.webm %}<source src="{{ include.webm | relative_url }}" type="video/webm">{% endif %}<source src="{{ include.src | relative_url }}" type="video/mp4"></video>{% if include.caption %}<figcaption class="block__caption">{{ include.caption }}</figcaption>{% endif %}</figure>

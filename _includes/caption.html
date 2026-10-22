@@ -1,0 +1,6 @@
+{%- comment -%}
+  One-line caption on its own, for when it sits under several blocks.
+  Most blocks also take caption="..." directly.
+  {% include caption.html text="Presenter card toolkit" %}
+{%- endcomment -%}
+<p class="block__caption block__caption--solo">{{ include.text }}</p>

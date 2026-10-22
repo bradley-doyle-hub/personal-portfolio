@@ -32,7 +32,8 @@ layout: default
 
   <div class="p-hero">
     {% if page.hero_video and page.hero_video != "" %}
-      {% include video-embed.html url=page.hero_video title=page.title %}
+      {% capture hero_caption %}{{ page.client | default: page.title | downcase }}{% if page.year and page.year != "" %} · {{ page.year }}{% endif %} · muted preview{% endcapture %}
+      {% include hero-player.html url=page.hero_video title=page.title caption=hero_caption %}
     {% else %}
     <div class="media media--frame">
       {% if thumb %}<img class="media__img" src="{{ page.thumbnail | relative_url }}" alt="{{ page.title | escape }}">{% endif %}

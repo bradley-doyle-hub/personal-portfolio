@@ -99,13 +99,28 @@
 
   // Hero reel from YouTube/Vimeo: muted background loop. Skipped for reduced
   // motion. The fade-in waits a beat so the player's title card never shows.
-  var bg = document.querySelector("[data-bg-video]");
-  if (bg && !reduceMotion) {
+  document.querySelectorAll("[data-bg-video]").forEach(function (bg) {
+    if (reduceMotion) return;
     bg.addEventListener("load", function () {
       setTimeout(function () { bg.classList.add("is-ready"); }, 1800);
     });
     bg.src = bg.dataset.src;
-  }
+  });
+
+  // Project hero: click swaps the muted preview for the full player with sound.
+  document.querySelectorAll("[data-player]").forEach(function (player) {
+    var play = player.querySelector("[data-player-play]");
+    var full = player.querySelector(".player__full iframe");
+    var bgFrame = player.querySelector("[data-bg-video]");
+    if (!play || !full) return;
+    play.addEventListener("click", function () {
+      var src = full.dataset.src;
+      full.src = src + (src.indexOf("?") > -1 ? "&" : "?") + "autoplay=1";
+      player.classList.add("is-playing");
+      full.focus();
+      if (bgFrame) setTimeout(function () { bgFrame.remove(); }, 600);
+    });
+  });
 
   // Full reel dialog: loads and autoplays on open, unloads on close so playback stops.
   var dialog = document.querySelector("[data-reel-dialog]");
@@ -119,6 +134,22 @@
     dialog.querySelector("[data-reel-close]").addEventListener("click", function () { dialog.close(); });
     dialog.addEventListener("click", function (e) { if (e.target === dialog) dialog.close(); });
     dialog.addEventListener("close", function () { if (frame) frame.removeAttribute("src"); });
+  }
+
+  // Project loops: play only while on screen. Reduced motion shows the poster.
+  var loops = document.querySelectorAll("[data-loop]");
+  if (loops.length) {
+    if (reduceMotion) {
+      loops.forEach(function (v) { v.removeAttribute("autoplay"); v.pause(); });
+    } else if ("IntersectionObserver" in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { var p = e.target.play(); if (p && p.catch) p.catch(function () {}); }
+          else e.target.pause();
+        });
+      }, { threshold: 0.25 });
+      loops.forEach(function (v) { io.observe(v); });
+    }
   }
 
   // Lottie: pages with `lottie: true` in front matter load lottie-web.
