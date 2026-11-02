@@ -1,7 +1,7 @@
 title: Bradley Doyle
 description: "Art director and 3D generalist in Ottawa. Product and tech visuals, brand campaigns and museum installations."
-url: "https://bradley-doyle-hub.github.io"
-baseurl: "/personal-portfolio"   # set to "" at cutover
+url: "https://bradleydoyle.ca"
+baseurl: ""
 
 email: "brad@bradleydoyle.ca"
 location: "ottawa, on"
@@ -38,6 +38,9 @@ defaults:
       layout: case-study
 
 markdown: kramdown
+
+plugins:
+  - jekyll-redirect-from
 
 exclude:
   - README.md
