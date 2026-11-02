@@ -1,38 +1,29 @@
 ---
 layout: case-study
-published: false
-order: 8
-featured: false
-title: "ISED Explainer Series"
-client: "ISED"
-agency: ""
-year: ""
-type: "3D explainer series"
-tags: []
+published: true
+cleared: true
+order: 10
+title: ISED Explainer Series
+client: ISED
+agency: Banfield
+year: "2022"
+type: 3D explainer series
+depth: middle
+tags: [3D]
 role: ""
-summary: ""
-note: ""
+summary: "A set of 3D animated videos explaining a call for funding with Innovative Solutions Canada."
 thumbnail: /assets/ised/thumb.jpg
-fill: ""
-hero_video: ""
+hero_video: "https://youtu.be/aa5dK1ciNfk"
 tools: []
 credits:
-  - role: ""
-    name: ""
+  - role: "Concepts / Studio"
+    name: "Bradley Doyle, Devin Singleton"
+  - role: "Character design"
+    name: "Katrin Emery, Bradley Doyle"
+  - role: "3D animation"
+    name: "Bradley Doyle, Devin Singleton"
+  - role: "Lighting / texturing"
+    name: "Bradley Doyle"
+  - role: "Sound design"
+    name: "Bradley Doyle"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/ised/frame-01.jpg) -->

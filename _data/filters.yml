@@ -1,0 +1,7 @@
+# Filter chips on the work page, in display order.
+# A chip only shows when at least one project carries that tag.
+# Tags not listed here still show on cards but get no chip.
+- 3D
+- Motion Design
+- Editorial
+- Design

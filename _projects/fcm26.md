@@ -1,38 +1,25 @@
 ---
 layout: case-study
-published: false
-order: 2
-featured: false
+published: true
+cleared: true
+order: 5
 title: "FCM 2026 Conference Package"
 client: "Federation of Canadian Municipalities"
 agency: "Character Creative"
 year: "2026"
 type: "Motion"
-tags: []
-role: ""
-summary: ""
-note: ""
+depth: "middle"
+tags: [Motion Design]
+role: "Motion designer"
+summary: "Social videos and stage graphics for the 2026 FCM Annual Conference in Edmonton."
 thumbnail: /assets/fcm26/thumb.jpg
-fill: ""
 hero_video: ""
-tools: []
+tools: [After Effects, Illustrator, DaVinci Resolve]
 credits:
-  - role: ""
-    name: ""
+  - role: "Agency, creative direction and event branding"
+    name: "Character Creative"
+  - role: "Creative director"
+    name: "Jamie McLennan"
+  - role: "Motion design, music and sound"
+    name: "Bradley Doyle"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/fcm26/frame-01.jpg) -->

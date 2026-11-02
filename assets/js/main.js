@@ -136,6 +136,18 @@
     dialog.addEventListener("close", function () { if (frame) frame.removeAttribute("src"); });
   }
 
+  // YouTube answers a missing max-res still with a 120px grey placeholder, not an
+  // error. When one loads, swap to the 640px still, which every video has.
+  document.querySelectorAll("img[data-yt-still]").forEach(function (img) {
+    function check() {
+      if (img.naturalWidth && img.naturalWidth < 400) {
+        img.removeAttribute("data-yt-still");
+        img.src = img.src.replace("maxresdefault", "sddefault");
+      }
+    }
+    if (img.complete) check(); else img.addEventListener("load", check);
+  });
+
   // Project loops: play only while on screen. Reduced motion shows the poster.
   var loops = document.querySelectorAll("[data-loop]");
   if (loops.length) {

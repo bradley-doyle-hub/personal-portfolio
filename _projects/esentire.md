@@ -1,38 +1,29 @@
 ---
 layout: case-study
-published: false
-order: 7
-featured: false
-title: "eSentire Explainer"
-client: "eSentire"
-agency: ""
-year: ""
-type: "3D explainer"
-tags: []
+published: true
+cleared: true
+order: 9
+title: eSentire Explainer
+client: eSentire
+agency: Cloud in the Sky
+year: "2022"
+type: 3D explainer
+depth: middle
+tags: [3D, Motion Design]
 role: ""
-summary: ""
-note: ""
+summary: "A 3D explainer for the cybersecurity company eSentire, made with Cloud in the Sky. I helped lead the animation and designed the concept, storyboard and flow."
 thumbnail: /assets/esentire/thumb.jpg
-fill: ""
-hero_video: ""
+hero_video: "https://youtu.be/AZzF3LI_1Ew"
 tools: []
 credits:
-  - role: ""
-    name: ""
+  - role: "Concepts / Studio"
+    name: "Cloud in the Sky, Bradley Doyle"
+  - role: "2D animation"
+    name: "Jesse Mann"
+  - role: "3D animation"
+    name: "Bradley Doyle, Skyler Michaels"
+  - role: "Lighting / texturing"
+    name: "Skyler Michaels"
+  - role: "Sound design"
+    name: "Hayden McGowan"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/esentire/frame-01.jpg) -->

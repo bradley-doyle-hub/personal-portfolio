@@ -20,7 +20,7 @@
 {% endif %}
 
 <div class="media media--player" data-player>
-  {% if poster %}<img class="media__img" src="{{ poster }}" alt="" aria-hidden="true">{% endif %}
+  {% if poster %}<img class="media__img" src="{{ poster }}" alt="" aria-hidden="true" data-yt-still>{% endif %}
   {% include video-embed.html url=url title=include.title background=true %}
   <span class="media__bloom"></span>
   <span class="media__grain"></span>

@@ -1,38 +1,29 @@
 ---
 layout: case-study
-published: false
-order: 1
-featured: false
+published: true
+cleared: true
+order: 4
 title: "Cupix 30s Brand Sizzle"
 client: "Cupix"
 agency: "Genuis Films"
 year: "2026"
 type: "Motion"
-tags: []
-role: ""
-summary: ""
+depth: "middle"
+tags: [3D, Motion Design]
+role: "Art director and lead artist"
+summary: "A 30-second brand film for Cupix's booth at Autodesk University, built around an AI chat."
 note: ""
 thumbnail: /assets/cupix/thumb.jpg
 fill: ""
-hero_video: ""
-tools: []
+hero_video: "https://youtu.be/GzOC_A-BD6M"
+tools: [Blender, After Effects, DaVinci Resolve]
 credits:
-  - role: ""
-    name: ""
+  - role: "Production company"
+    name: "Genuis Films"
+  - role: "Producer"
+    name: "Adam Genuis"
+  - role: "Art direction, 3D, After Effects camera, motion design, edit, colour, music and sound"
+    name: "Bradley Doyle"
+  - role: "2D design and animation"
+    name: "Nigel Elton"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/cupix/frame-01.jpg) -->

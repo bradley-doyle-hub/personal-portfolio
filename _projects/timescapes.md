@@ -1,38 +1,23 @@
 ---
 layout: case-study
-published: false
-order: 5
-featured: false
-title: "Timescapes"
+published: true
+cleared: true
+order: 7
+title: Timescapes
 client: ""
-agency: "Genuis Films"
-year: ""
-type: "Motion"
-tags: []
+agency: Genuis Films
+year: "2026"
+type: Motion
+depth: minimal
+tags: [Motion Design]
 role: ""
-summary: ""
-note: ""
+summary: "A brand sizzle for Timescapes, made with Genuis Films."
 thumbnail: /assets/timescapes/thumb.jpg
-fill: ""
-hero_video: ""
+hero_video: "https://youtu.be/pu2DtwOXPwE"
 tools: []
 credits:
-  - role: ""
-    name: ""
+  - role: "Production company"
+    name: "Genuis Films"
+  - role: "Motion graphics"
+    name: "Bradley Doyle"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/timescapes/frame-01.jpg) -->

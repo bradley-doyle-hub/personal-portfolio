@@ -1,38 +1,30 @@
 ---
 layout: case-study
-published: false
-order: 10
-featured: false
-title: "Oliver Campaign Video"
-client: "Oliver"
-agency: ""
-year: ""
-type: "Editing + motion"
-tags: []
+published: true
+cleared: true
+order: 12
+title: Oliver Campaign Video
+redirect_from: /portfolio/oliver-the-smart-cooking-robot/
+client: Oliver
+agency: Stiff inc.
+year: "2020"
+type: Editing + motion
+depth: minimal
+tags: [Editorial, Motion Design]
 role: ""
-summary: ""
-note: ""
+summary: "The Indiegogo campaign video for Oliver, a smart cooking robot from a local Ottawa start-up. I edited it and did the motion graphics and colour."
 thumbnail: /assets/oliver/thumb.jpg
-fill: ""
-hero_video: ""
+hero_video: "https://youtu.be/ZbT-baUp9kI"
 tools: []
 credits:
-  - role: ""
-    name: ""
+  - role: "Concepts / Studio"
+    name: "Stiff inc."
+  - role: "Motion designer"
+    name: "Bradley Doyle"
+  - role: "Editor"
+    name: "Bradley Doyle"
+  - role: "Director of photography"
+    name: "William Smith"
+  - role: "Colourist"
+    name: "Bradley Doyle"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/oliver/frame-01.jpg) -->

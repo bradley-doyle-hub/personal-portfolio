@@ -1,38 +1,21 @@
 ---
 layout: case-study
-published: false
-order: 13
-featured: false
-title: "Modern Military Aviation"
-client: ""
-agency: "Immersive International"
+published: true
+cleared: true
+order: 2
+title: Modern Military Aviation
+client: National Air and Space Museum
+agency: Immersive International
 year: ""
-type: "3D + motion"
-tags: []
+type: 3D + motion
+depth: deep
+tags: [3D, Motion Design]
 role: ""
-summary: ""
-note: ""
+summary: "A globe projection for the National Air and Space Museum, made at Immersive International."
 thumbnail: /assets/modern-military-aviation/thumb.jpg
-fill: ""
-hero_video: ""
+hero_video: "https://youtu.be/YXrwINcVCWA"
 tools: []
 credits:
-  - role: ""
-    name: ""
+  - role: "Studio"
+    name: "Immersive International"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/modern-military-aviation/frame-01.jpg) -->

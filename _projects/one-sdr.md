@@ -1,38 +1,25 @@
 ---
 layout: case-study
-published: false
-order: 9
-featured: false
-title: "ONE SDR"
-client: "ONE SDR"
-agency: ""
-year: ""
-type: "Motion"
-tags: []
+published: true
+cleared: true
+order: 11
+title: ONE SDR
+client: ONE SDR
+agency: Banfield
+year: "2022"
+type: Motion
+depth: minimal
+tags: [3D, Motion Design]
 role: ""
-summary: ""
-note: ""
+summary: "A 2D and 3D animated explainer for ONE SDR."
 thumbnail: /assets/one-sdr/thumb.jpg
-fill: ""
-hero_video: ""
+hero_video: "https://youtu.be/YLREbXbx3YI"
 tools: []
 credits:
-  - role: ""
-    name: ""
+  - role: "Concepts / Studio"
+    name: "Banfield"
+  - role: "2D animation"
+    name: "Bradley Doyle, Ryan Grevatt, Devin Singleton, Madison Foran"
+  - role: "3D animation"
+    name: "Bradley Doyle, Devin Singleton"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/one-sdr/frame-01.jpg) -->

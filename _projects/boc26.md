@@ -1,38 +1,23 @@
 ---
 layout: case-study
-published: false
-order: 3
-featured: false
+published: true
+cleared: true
+order: 6
 title: "BoC26 3D Spots"
-client: ""
+client: "Bank of Canada"
 agency: "Designer Unknown"
 year: "2026"
 type: "3D"
-tags: []
+depth: "middle"
+tags: [3D]
 role: ""
-summary: ""
-note: ""
+summary: "Four animated 3D teasers for the Bank of Canada, made with Designer Unknown."
 thumbnail: /assets/boc26/thumb.jpg
-fill: ""
 hero_video: ""
 tools: []
 credits:
-  - role: ""
-    name: ""
+  - role: "Agency"
+    name: "Designer Unknown"
+  - role: "3D animation"
+    name: "Bradley Doyle"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/boc26/frame-01.jpg) -->

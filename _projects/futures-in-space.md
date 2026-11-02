@@ -1,38 +1,21 @@
 ---
 layout: case-study
-published: false
-order: 12
-featured: false
-title: "Futures in Space"
-client: ""
-agency: "Immersive International"
-year: ""
-type: "Short film, 3D, VFX"
-tags: []
-role: ""
-summary: ""
-note: ""
+published: true
+cleared: true
+order: 1
+title: Futures in Space
+client: National Air and Space Museum
+agency: Immersive International
+year: "2025"
+type: Short film, 3D, VFX
+depth: deep
+tags: [3D]
+role: Art director
+summary: "A short film for the Mars habitat in Gallery 109 at the National Air and Space Museum."
 thumbnail: /assets/futures-in-space/thumb.jpg
-fill: ""
-hero_video: ""
-tools: []
+hero_video: "https://youtu.be/Qf1UpwcRNZI"
+tools: [Unreal Engine 5, After Effects, Blender, DaVinci Resolve, Fusion, Premiere Pro]
 credits:
-  - role: ""
-    name: ""
+  - role: "Studio"
+    name: "Immersive International"
 ---
-
-## The request
-
-<!-- What the client needed, and why. 2 to 3 sentences. -->
-
-## The approach
-
-<!-- The key decisions you made and why. Specific, not generic. 1 to 3 short paragraphs. -->
-
-## The outcome
-
-<!-- What happened after delivery: where it ran, reach, client reaction, what it led to. 1 to 2 sentences. -->
-
-## Gallery
-
-<!-- Stills or loops. Normal Markdown only: ![Alt text](/assets/futures-in-space/frame-01.jpg) -->
