@@ -6,16 +6,17 @@ order: 2
 title: Modern Military Aviation
 client: National Air and Space Museum
 agency: Immersive International
-year: ""
+role: Design and animation lead, motion designer, editor, art director
+year: '2025'
 type: 3D + motion
 depth: deep
 tags: [3D, Motion Design]
-role: ""
-summary: "A globe projection for the National Air and Space Museum, made at Immersive International."
-thumbnail: /assets/modern-military-aviation/thumb.jpg
-hero_video: "https://youtu.be/YXrwINcVCWA"
 tools: []
+summary: A globe projection for the National Air and Space Museum, made at Immersive International.
+thumbnail: /assets/modern-military-aviation/thumb.jpg
+hero_video: https://youtu.be/YXrwINcVCWA
 credits:
-  - role: "Studio"
-    name: "Immersive International"
+- {role: Art director, name: Bradley Doyle}
+- {role: Motion design, name: Bradley Doyle}
+- {role: Editing, name: Bradley Doyle}
 ---

@@ -4,20 +4,19 @@ published: true
 cleared: true
 order: 7
 title: Timescapes
-client: ""
+client: Timescapes
 agency: Genuis Films
-year: "2026"
+role: Motion designer, music and sound
+year: '2026'
 type: Motion
 depth: minimal
 tags: [Motion Design]
-role: ""
-summary: "A brand sizzle for Timescapes, made with Genuis Films."
-thumbnail: /assets/timescapes/thumb.jpg
-hero_video: "https://youtu.be/pu2DtwOXPwE"
 tools: []
+summary: A brand sizzle for Timescapes, made with Genuis Films.
+thumbnail: /assets/timescapes/thumb.jpg
+hero_video: https://youtu.be/pu2DtwOXPwE
 credits:
-  - role: "Production company"
-    name: "Genuis Films"
-  - role: "Motion graphics"
-    name: "Bradley Doyle"
+- {role: Studio, name: Genuis Films}
+- {role: Motion design, name: Bradley Doyle}
+- {role: Music and sound design, name: Bradley Doyle}
 ---

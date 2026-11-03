@@ -41,23 +41,26 @@
     show(saved === "index" ? "index" : "grid");
   });
 
-  // Archive: discipline filter and the 4-column bento pattern.
+  // Archive: discipline filter and the offset grid.
   var archive = document.querySelector("[data-archive]");
   if (archive) {
     var chips = archive.querySelectorAll("[data-filter]");
     var cards = archive.querySelectorAll(".archive-grid .card");
     var rows = archive.querySelectorAll(".work-index .row");
 
-    // Wide: spans follow 1,2,1,2,2 so rows fill 4 columns. The last card
-    // stretches to close its row. Narrow (2 columns): pairs, last odd one full width.
+    // Offset grid on 24 columns. Rows run small, large, small, then two halves.
+    // SMALL is the width of the narrow cards in columns (7 of 24 is 29%). Raise it
+    // for bigger narrow cards. The large card takes what's left (24 - 2 * SMALL).
+    // The last card stretches to close its row.
+    var SMALL = 7;
     function layout() {
       var shown = Array.prototype.filter.call(cards, function (c) { return !c.hidden; });
-      var pattern = [1, 2, 1, 2, 2];
+      var pattern = [SMALL, 24 - 2 * SMALL, SMALL, 12, 12];
       var last = shown.length - 1;
       shown.forEach(function (card, i) {
         var span = pattern[i % 5];
-        if (i === last && (i % 5 === 0 || i % 5 === 3)) span = 4;
-        else if (i === last && i % 5 === 1) span = 3;
+        if (i === last && (i % 5 === 0 || i % 5 === 3)) span = 24;
+        else if (i === last && i % 5 === 1) span = 24 - SMALL;
         card.style.setProperty("--span", span);
         card.style.setProperty("--span-narrow", i === last && i % 2 === 0 ? 2 : 1);
       });

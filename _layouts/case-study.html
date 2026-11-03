@@ -52,17 +52,42 @@ layout: default
     {% if page.type and page.type != "" %}<div class="meta-row"><dt>type</dt><dd>{{ page.type }}</dd></div>{% endif %}
     {% if page.year and page.year != "" %}<div class="meta-row"><dt>year</dt><dd>{{ page.year }}</dd></div>{% endif %}
   {% endcapture %}
+  {% assign has_tools = false %}
+  {% for tool in page.tools %}{% if tool != "" %}{% assign has_tools = true %}{% endif %}{% endfor %}
+  {% assign has_credits = false %}
+  {% unless is_personal %}
+    {% for credit in page.credits %}{% if credit.name and credit.name != "" %}{% assign has_credits = true %}{% endif %}{% endfor %}
+  {% endunless %}
+  {% capture credit_rows %}
+    {% if has_credits %}
+      {% for credit in page.credits %}
+        {% if credit.name and credit.name != "" %}<div class="meta-row"><dt>{{ credit.role }}</dt><dd>{{ credit.name }}</dd></div>{% endif %}
+      {% endfor %}
+    {% endif %}
+    {% if has_tools %}
+      <div class="meta-row"><dt>tools</dt><dd>{% for tool in page.tools %}{% if tool != "" %}{{ tool }}{% unless forloop.last %} · {% endunless %}{% endif %}{% endfor %}</dd></div>
+    {% endif %}
+  {% endcapture %}
   {% assign has_meta = false %}
-  {% if meta_rows contains "meta-row" %}{% assign has_meta = true %}{% endif %}
+  {% if meta_rows contains "meta-row" or credit_rows contains "meta-row" %}{% assign has_meta = true %}{% endif %}
   {% assign has_summary = false %}
   {% if page.summary and page.summary != "" %}{% assign has_summary = true %}{% endif %}
 
   {% if has_meta or has_summary %}
   <section class="p-section">
-    <h2 class="section-head">overview</h2>
     <div class="brief-grid">
-      {% if has_meta %}<dl class="meta-list">{{ meta_rows }}</dl>{% else %}<div></div>{% endif %}
-      {% if has_summary %}<p class="brief-lede">{{ page.summary }}</p>{% endif %}
+      {% if has_meta %}
+      <div class="brief-col">
+        <h2 class="section-head">credits</h2>
+        <dl class="meta-list">{{ meta_rows }}{{ credit_rows }}</dl>
+      </div>
+      {% else %}<div></div>{% endif %}
+      {% if has_summary %}
+      <div class="brief-col brief-col--lede">
+        <h2 class="section-head">overview</h2>
+        <p class="brief-lede">{{ page.summary }}</p>
+      </div>
+      {% endif %}
     </div>
   </section>
   {% endif %}
@@ -77,31 +102,6 @@ layout: default
   <div class="p-body">
     {{ content | replace: src_from, src_to }}
   </div>
-
-  {% assign has_tools = false %}
-  {% for tool in page.tools %}{% if tool != "" %}{% assign has_tools = true %}{% endif %}{% endfor %}
-  {% assign has_credits = false %}
-  {% unless is_personal %}
-    {% for credit in page.credits %}{% if credit.name and credit.name != "" %}{% assign has_credits = true %}{% endif %}{% endfor %}
-  {% endunless %}
-
-  {% if has_tools or has_credits %}
-  <section class="p-section">
-    <h2 class="section-head">credits</h2>
-    <dl class="credits">
-      {% if has_credits %}
-        {% for credit in page.credits %}
-          {% if credit.name and credit.name != "" %}
-          <div class="credit"><dt>{{ credit.role }}</dt><dd>{{ credit.name }}</dd></div>
-          {% endif %}
-        {% endfor %}
-      {% endif %}
-      {% if has_tools %}
-      <div class="credit"><dt>tools</dt><dd>{% for tool in page.tools %}{% if tool != "" %}{{ tool }}{% unless forloop.last %} · {% endunless %}{% endif %}{% endfor %}</dd></div>
-      {% endif %}
-    </dl>
-  </section>
-  {% endif %}
 
   {% if next and next.url != page.url %}
   <a class="next-project" href="{{ next.url | relative_url }}">

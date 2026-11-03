@@ -3,23 +3,21 @@ layout: case-study
 published: true
 cleared: true
 order: 5
-title: "FCM 2026 Conference Package"
-client: "Federation of Canadian Municipalities"
-agency: "Character Creative"
-year: "2026"
-type: "Motion"
-depth: "middle"
+title: FCM 2026 Conference Package
+client: Federation of Canadian Municipalities
+agency: Character Creative
+role: Motion designer
+year: '2026'
+type: Motion
+depth: middle
 tags: [Motion Design]
-role: "Motion designer"
-summary: "Social videos and stage graphics for the 2026 FCM Annual Conference in Edmonton."
-thumbnail: /assets/fcm26/thumb.jpg
-hero_video: ""
 tools: [After Effects, Illustrator, DaVinci Resolve]
+summary: Social videos and stage graphics for the 2026 FCM Annual Conference in Edmonton.
+thumbnail: /assets/fcm26/thumb.jpg
+hero_video: ''
 credits:
-  - role: "Agency, creative direction and event branding"
-    name: "Character Creative"
-  - role: "Creative director"
-    name: "Jamie McLennan"
-  - role: "Motion design, music and sound"
-    name: "Bradley Doyle"
+- {role: Studio, name: Character Creative}
+- {role: Creative director, name: Jamie McLennan}
+- {role: Motion design, name: Bradley Doyle}
+- {role: Music and sound design, name: Bradley Doyle}
 ---
