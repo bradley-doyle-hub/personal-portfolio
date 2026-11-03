@@ -144,6 +144,8 @@ ul{list-style:none;padding:0}
   opacity:0;transition:opacity var(--dur-cinema) var(--ease-out);
 }
 .media__bg.is-ready{opacity:1}
+/* Home hero uses viewport units: some in-app phone browsers (Instagram) resolve cqh wrong and letterbox the video */
+.media--hero .media__bg{width:max(100vw,177.78vh);height:max(56.25vw,100vh)}
 .hero__content{position:absolute;left:0;right:0;bottom:64px;z-index:2;padding:0 var(--edge);display:flex;flex-direction:column;gap:32px}
 .hero__kicker{font-family:var(--font-mono);font-size:13px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bd-signal-bright)}
 .hero__foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:28px;padding-top:28px;border-top:1px solid var(--line-2)}
