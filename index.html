@@ -11,6 +11,12 @@ title: Home
     {% if site.reel_loop != "" %}
     <video class="media__video" src="{{ site.reel_loop | relative_url }}" autoplay muted loop playsinline data-hero-video></video>
     {% elsif site.reel_url != "" %}
+    {% if site.reel_url contains "youtu.be/" %}
+      {% assign reel_id = site.reel_url | split: "youtu.be/" | last | split: "?" | first %}
+    {% elsif site.reel_url contains "youtube.com" %}
+      {% assign reel_id = site.reel_url | split: "v=" | last | split: "&" | first %}
+    {% endif %}
+    {% if reel_id %}<img class="media__img" src="https://i.ytimg.com/vi/{{ reel_id }}/maxresdefault.jpg" alt="" aria-hidden="true" fetchpriority="high" data-yt-still>{% endif %}
     {% include video-embed.html url=site.reel_url title="Bradley Doyle reel" background=true %}
     {% endif %}
     <span class="media__bloom"></span>
