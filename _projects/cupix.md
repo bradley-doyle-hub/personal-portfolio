@@ -16,13 +16,6 @@ summary: A 30-second brand film for Cupix's booth at Autodesk University, built 
 thumbnail: /assets/cupix/thumb.jpg
 hero_video: https://youtu.be/GzOC_A-BD6M
 credits:
-- {role: Studio, name: Genuis Films}
 - {role: Producer, name: Adam Genuis}
-- {role: Art director, name: Bradley Doyle}
-- {role: 2D animation, name: Nigel Elton}
-- {role: 3D animation, name: Bradley Doyle}
-- {role: Motion design, name: Bradley Doyle}
-- {role: Editing, name: Bradley Doyle}
-- {role: Colour, name: Bradley Doyle}
-- {role: Music and sound design, name: Bradley Doyle}
+- {role: Animation, name: Nigel Elton}
 ---

@@ -275,6 +275,22 @@ ul{list-style:none;padding:0}
 .contact-form{display:flex;flex-direction:column;gap:26px}
 .contact-form--pending p{color:var(--bd-bone)}
 .contact-form--pending a{color:var(--bd-signal-bright)}
+.contact-form--pending{gap:32px}
+.contact-form--pending .btn{color:var(--bd-paper)}
+.direct{margin:0;border-top:1px solid var(--line-2)}
+.direct__row{display:grid;grid-template-columns:110px minmax(0,1fr);gap:16px;align-items:center;padding:20px 0;border-bottom:1px solid var(--line-2)}
+.direct dt{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bd-stone)}
+.direct dd{margin:0}
+.contact-form--pending .direct__mail{display:inline-flex;align-items:center;gap:14px;min-height:44px;font-family:var(--font-display);font-weight:300;font-size:clamp(22px,2.6vw,36px);line-height:1.1;letter-spacing:-0.03em;color:var(--bd-paper);overflow-wrap:anywhere}
+.direct__arrow{display:inline-block;color:var(--bd-signal-bright);transition:transform var(--dur-base) var(--ease-out)}
+.contact-form--pending .direct__mail:hover{color:var(--bd-signal-bright)}
+.direct__mail:hover .direct__arrow{transform:translateX(6px)}
+.direct__text{font-size:17px;color:var(--bd-bone)}
+.direct__links{display:flex;flex-wrap:wrap;gap:0 28px}
+.contact-form--pending .direct__links a{display:inline-flex;align-items:center;gap:6px;min-height:44px;font-size:16px;color:var(--bd-paper)}
+.direct__links a span{font-size:12px;color:var(--bd-stone);transition:transform var(--dur-base) var(--ease-out),color var(--dur-base)}
+.contact-form--pending .direct__links a:hover{color:var(--bd-signal-bright)}
+.direct__links a:hover span{color:var(--bd-signal-bright);transform:translate(2px,-2px)}
 .field{display:flex;flex-direction:column;gap:10px}
 .field__label{font-family:var(--font-mono);font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--bd-stone)}
 .field input,.field textarea{
@@ -432,6 +448,7 @@ ul{list-style:none;padding:0}
   .service__name{gap:12px}
   .service__num{width:32px}
   .credits{grid-template-columns:1fr}
+  .direct__row{grid-template-columns:1fr;gap:4px;padding:16px 0}
   .block--grid{grid-template-columns:1fr;gap:12px}
   .block--grid .block__caption{margin-top:0}
   .next-project{flex-direction:column;align-items:flex-start}

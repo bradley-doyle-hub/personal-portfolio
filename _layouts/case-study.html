@@ -49,7 +49,6 @@ layout: default
       {% if page.agency and page.agency != "" %}<div class="meta-row"><dt>agency</dt><dd>{{ page.agency }}</dd></div>{% endif %}
       {% if page.role and page.role != "" %}<div class="meta-row"><dt>role</dt><dd>{{ page.role }}</dd></div>{% endif %}
     {% endunless %}
-    {% if page.type and page.type != "" %}<div class="meta-row"><dt>type</dt><dd>{{ page.type }}</dd></div>{% endif %}
     {% if page.year and page.year != "" %}<div class="meta-row"><dt>year</dt><dd>{{ page.year }}</dd></div>{% endif %}
   {% endcapture %}
   {% assign has_tools = false %}
@@ -61,7 +60,9 @@ layout: default
   {% capture credit_rows %}
     {% if has_credits %}
       {% for credit in page.credits %}
-        {% if credit.name and credit.name != "" %}<div class="meta-row"><dt>{{ credit.role }}</dt><dd>{{ credit.name }}</dd></div>{% endif %}
+        {% assign skip = false %}
+        {% if credit.role == "Studio" and credit.name == page.agency %}{% assign skip = true %}{% endif %}
+        {% if credit.name and credit.name != "" and skip == false %}<div class="meta-row"><dt>{{ credit.role }}</dt><dd>{{ credit.name }}</dd></div>{% endif %}
       {% endfor %}
     {% endif %}
     {% if has_tools %}
@@ -70,8 +71,9 @@ layout: default
   {% endcapture %}
   {% assign has_meta = false %}
   {% if meta_rows contains "meta-row" or credit_rows contains "meta-row" %}{% assign has_meta = true %}{% endif %}
+  {% assign lede = page.overview | default: page.summary %}
   {% assign has_summary = false %}
-  {% if page.summary and page.summary != "" %}{% assign has_summary = true %}{% endif %}
+  {% if lede and lede != "" %}{% assign has_summary = true %}{% endif %}
 
   {% if has_meta or has_summary %}
   <section class="p-section">
@@ -85,7 +87,7 @@ layout: default
       {% if has_summary %}
       <div class="brief-col brief-col--lede">
         <h2 class="section-head">overview</h2>
-        <p class="brief-lede">{{ page.summary }}</p>
+        <p class="brief-lede">{{ lede }}</p>
       </div>
       {% endif %}
     </div>
