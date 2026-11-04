@@ -16,25 +16,4 @@
   <input type="text" name="_gotcha" class="visually-hidden" tabindex="-1" autocomplete="off" aria-hidden="true">
   <div><button type="submit" class="btn btn--primary">send message →</button></div>
 </form>
-{% else %}
-<div class="contact-form contact-form--pending">
-  <dl class="direct">
-    <div class="direct__row">
-      <dt>email</dt>
-      <dd><a class="direct__mail" href="mailto:{{ site.email }}">{{ site.email }}<span class="direct__arrow" aria-hidden="true">→</span></a></dd>
-    </div>
-    <div class="direct__row">
-      <dt>based in</dt>
-      <dd class="direct__text">{{ site.location }}</dd>
-    </div>
-    {% assign socials = site.social | where_exp: "s", "s.url != ''" %}
-    {% if socials.size > 0 %}
-    <div class="direct__row">
-      <dt>elsewhere</dt>
-      <dd class="direct__links">{% for s in socials %}<a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.label }} <span aria-hidden="true">↗</span></a>{% endfor %}</dd>
-    </div>
-    {% endif %}
-  </dl>
-  <div><a class="btn btn--primary" href="mailto:{{ site.email }}">email me →</a></div>
-</div>
 {% endif %}

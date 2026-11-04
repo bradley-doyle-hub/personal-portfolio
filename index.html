@@ -117,6 +117,8 @@ title: Home
       <p class="contact__lede">Project enquiries, collaborations, or just hello. I read every message and reply within a couple of days.</p>
       {% if site.basin_endpoint != "" %}
       <p class="contact__direct"><a href="mailto:{{ site.email }}">{{ site.email }}</a> <span>·</span> <span>{{ site.location }}</span></p>
+      {% else %}
+      <a class="btn btn--primary" href="mailto:{{ site.email }}">email me →</a>
       {% endif %}
     </div>
     {% include contact-form.html %}
