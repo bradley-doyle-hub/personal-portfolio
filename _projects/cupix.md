@@ -3,7 +3,7 @@ layout: case-study
 published: true
 cleared: true
 order: 4
-title: Cupix 30s Brand Sizzle
+title: Cupix | 30-Second Brand Film
 client: Cupix
 agency: Genuis Films
 role: Art director and lead artist

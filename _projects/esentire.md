@@ -3,7 +3,7 @@ layout: case-study
 published: true
 cleared: true
 order: 9
-title: eSentire Explainer
+title: eSentire | 3D Explainer
 client: eSentire
 agency: Cloud in the Sky
 role: Art director, 3D lead, editor

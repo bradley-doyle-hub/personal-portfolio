@@ -3,7 +3,7 @@ layout: case-study
 published: true
 cleared: true
 order: 13
-title: Veteran Stories
+title: Veteran Stories | Interview Series
 client: Veterans Affairs Canada
 agency: Stiff inc.
 role: Director, editor and motion designer

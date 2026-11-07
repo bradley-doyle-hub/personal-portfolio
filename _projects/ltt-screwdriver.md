@@ -3,7 +3,7 @@ layout: case-study
 category: personal
 published: true
 order: 8
-title: LTT Screwdriver
+title: LTT Screwdriver | 3D Product Animation
 role: Solo, concept to final frame
 year: '2025'
 type: 3D product animation

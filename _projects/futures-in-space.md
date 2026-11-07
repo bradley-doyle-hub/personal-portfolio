@@ -3,7 +3,7 @@ layout: case-study
 published: true
 cleared: true
 order: 1
-title: Futures in Space
+title: Futures in Space | Museum Film
 client: National Air and Space Museum
 agency: Immersive International
 role: Art director

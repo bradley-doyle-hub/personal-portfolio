@@ -3,7 +3,7 @@ layout: case-study
 published: true
 cleared: true
 order: 12
-title: Oliver Campaign Video
+title: Oliver | Kickstarter Campaign Video
 redirect_from: /portfolio/oliver-the-smart-cooking-robot/
 client: Oliver
 agency: Stiff inc.

@@ -3,7 +3,7 @@ layout: case-study
 published: true
 cleared: true
 order: 10
-title: ISED Explainer Series
+title: ISED | 3D Explainer Series
 client: ISED Canada
 agency: Banfield
 role: 3D animator, editor, music and sound design

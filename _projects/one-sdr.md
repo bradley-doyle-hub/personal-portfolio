@@ -3,7 +3,7 @@ layout: case-study
 published: true
 cleared: true
 order: 11
-title: ONE SDR
+title: ONE SDR | 2D and 3D Explainer
 client: ONE SDR
 agency: Banfield
 role: 2D and 3D animator, two scenes
