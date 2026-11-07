@@ -14,7 +14,7 @@ tags: [Motion Design]
 tools: [After Effects, Illustrator, DaVinci Resolve]
 summary: Social videos and stage graphics for the 2026 FCM Annual Conference in Edmonton.
 thumbnail: /assets/fcm26/thumb.jpg
-hero_video: ''
+hero_video: https://youtu.be/jupspr5QJLw
 credits:
 - {role: Creative director, name: Jamie McLennan}
 ---
