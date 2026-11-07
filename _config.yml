@@ -1,7 +1,7 @@
 title: Bradley Doyle
 description: "Art director and 3D generalist in Ottawa. Product and tech visuals, brand campaigns and museum installations."
-url: "https://bradley-doyle-hub.github.io"
-baseurl: "/personal-portfolio"
+url: "https://bradleydoyle.ca"
+baseurl: ""
 
 email: "brad@bradleydoyle.ca"
 location: "ottawa, on"
@@ -15,6 +15,10 @@ reel_url: "https://youtu.be/tJ2b2M_6EAo"
 # Optional short, muted MP4 loop for the hero background, e.g. /assets/reel/loop.mp4.
 # Takes priority over the YouTube background when set.
 reel_loop: ""
+
+# Optional share image (path or absolute URL) used when a page has no thumbnail or video still.
+# Falls back to the YouTube still of the reel.
+og_image: ""
 
 # Footer links. Blank URLs are skipped.
 social:
@@ -41,6 +45,7 @@ markdown: kramdown
 
 plugins:
   - jekyll-redirect-from
+  - jekyll-sitemap
 
 exclude:
   - README.md

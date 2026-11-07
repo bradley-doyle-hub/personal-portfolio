@@ -139,16 +139,23 @@
     dialog.addEventListener("close", function () { if (frame) frame.removeAttribute("src"); });
   }
 
-  // YouTube answers a missing max-res still with a 120px grey placeholder, not an
-  // error. When one loads, swap to the 640px still, which every video has.
+  // YouTube answers a missing max-res still with a 120px grey placeholder (a 404 or a 200,
+  // depending on the video), so check the width, not just the error event. Step down
+  // maxres, then 640px, then 480px until a real still loads.
+  var YT_STILLS = ["maxresdefault", "sddefault", "hqdefault"];
   document.querySelectorAll("img[data-yt-still]").forEach(function (img) {
-    function check() {
-      if (img.naturalWidth && img.naturalWidth < 400) {
-        img.removeAttribute("data-yt-still");
-        img.src = img.src.replace("maxresdefault", "sddefault");
-      }
+    function stepDown() {
+      var m = img.src.match(/\/(maxresdefault|sddefault|hqdefault)\.jpg/);
+      var i = m ? YT_STILLS.indexOf(m[1]) : -1;
+      if (i < 0 || i === YT_STILLS.length - 1) { img.removeAttribute("data-yt-still"); return; }
+      img.src = img.src.replace(m[1], YT_STILLS[i + 1]);
     }
-    if (img.complete) check(); else img.addEventListener("load", check);
+    function check() {
+      if (!img.naturalWidth || img.naturalWidth < 400) stepDown();
+    }
+    img.addEventListener("load", check);
+    img.addEventListener("error", stepDown);
+    if (img.complete) check();
   });
 
   // Project loops: play only while on screen. Reduced motion shows the poster.

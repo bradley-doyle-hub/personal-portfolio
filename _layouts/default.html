@@ -8,16 +8,41 @@
   {% else %}
   <title>{{ site.title }} | Art director and 3D generalist</title>
   {% endif %}
-  {% assign description = page.summary | default: page.note | default: site.description | strip_html | strip %}
+  {% assign description = page.summary | default: page.note | default: site.description | strip_html | strip_newlines | normalize_whitespace | strip | escape %}
   <meta name="description" content="{{ description }}">
   <link rel="canonical" href="{{ page.url | absolute_url }}">
   <meta name="theme-color" content="#0E0E0E">
   <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}" type="image/svg+xml">
 
-  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  {% comment %}
+    Share image, first that exists: the page's own thumbnail file, the YouTube still of its hero video,
+    site.og_image, then the YouTube still of the reel. sddefault exists for every video, maxresdefault does not.
+  {% endcomment %}
+  {% assign og_image = "" %}
+  {% if page.thumbnail and page.thumbnail != "" %}
+    {% assign og_file = site.static_files | where: "path", page.thumbnail | first %}
+    {% if og_file %}{% assign og_image = page.thumbnail | absolute_url %}{% endif %}
+  {% endif %}
+  {% if og_image == "" and page.hero_video and page.hero_video contains "youtu.be/" %}
+    {% assign og_id = page.hero_video | split: "youtu.be/" | last | split: "?" | first %}
+    {% assign og_image = "https://i.ytimg.com/vi/" | append: og_id | append: "/sddefault.jpg" %}
+  {% endif %}
+  {% if og_image == "" and site.og_image and site.og_image != "" %}
+    {% assign og_image = site.og_image | absolute_url %}
+  {% endif %}
+  {% if og_image == "" and site.reel_url contains "youtu.be/" %}
+    {% assign og_id = site.reel_url | split: "youtu.be/" | last | split: "?" | first %}
+    {% assign og_image = "https://i.ytimg.com/vi/" | append: og_id | append: "/sddefault.jpg" %}
+  {% endif %}
+  {% if page.url == "/" %}{% assign og_title = site.title %}{% else %}{% assign og_title = page.title | default: site.title %}{% endif %}
+
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="{{ site.title | escape }}">
+  <meta property="og:title" content="{{ og_title | escape }}">
   <meta property="og:description" content="{{ description }}">
   <meta property="og:url" content="{{ page.url | absolute_url }}">
-  {% if page.thumbnail %}<meta property="og:image" content="{{ page.thumbnail | absolute_url }}">{% endif %}
+  {% if og_image != "" %}<meta property="og:image" content="{{ og_image }}">{% endif %}
+  <meta name="twitter:card" content="summary_large_image">
 
   <link rel="preload" href="{{ '/assets/fonts/Inter-Variable.woff2' | relative_url }}" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{{ '/assets/css/main.css' | relative_url }}">
