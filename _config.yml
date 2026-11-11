@@ -11,7 +11,7 @@ basin_endpoint: ""
 
 # Full reel on Vimeo or YouTube. Plays muted behind the hero, and in full
 # with sound from the "play full reel" button.
-reel_url: "https://youtu.be/_duMo6GnGXo"
+reel_url: "https://youtu.be/tJ2b2M_6EAo"
 # Optional short, muted MP4 loop for the hero background, e.g. /assets/reel/loop.mp4.
 # Takes priority over the YouTube background when set.
 reel_loop: ""

@@ -14,5 +14,7 @@ tags: [3D]
 tools: [Unreal Engine 5, After Effects, Blender, DaVinci Resolve, Fusion, Premiere Pro]
 summary: A short film for the Mars habitat in Gallery 109 at the National Air and Space Museum.
 thumbnail: /assets/futures-in-space/thumb.jpg
-hero_video: https://youtu.be/Qf1UpwcRNZI
+hero_video: https://youtu.be/_duMo6GnGXo
+credits:
+- {role: Featured in, name: '"Futures in Space" Exhibition, Smithsonian National Air and Space Museum'}
 ---
